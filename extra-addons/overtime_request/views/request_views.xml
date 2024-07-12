@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- tree view -->
+    <record id="request_tree_view" model="ir.ui.view">
+        <field name="name">request_tree_view</field>
+        <field name="model">request</field>
+        <field name="arch" type="xml">
+            <tree name="request_tree_view">
+                <field name="request_date" string="date request"/>
+                <field name="employee_id">
+                    <tree>
+                        <field name="login" string="Employee"/>
+                        <field name="email" string="Work Email"/>
+                    </tree>
+                </field>
+            </tree>
+        </field>
+    </record>
+    <!-- form view -->
+    <record id="request_form_view" model="ir.ui.view">
+        <field name="name">request.form.view</field>
+        <field name="model">request</field>
+        <field name="arch" type="xml">
+            <form string="Request Form View">
+                <header>
+                    <button name="submit_action" type="object" string="Submit" invisible ="state != 'draft'"/>
+                    <!-- <button name="Cancel_action" type="object" string="Cancel"/> -->
+                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting,approved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" widget="many2one_tags">
+                                <tree>
+                                    <field name="login" string="Employee" widget="selection" />
+                                    <field name="company_id" string="Department"/>
+                                    <field name="partner_id" string="Manager"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="request_date" string="Request Date"/>
+                            <field name="hour_from" string="Hour From"/>
+                            <field name="hour_to" string="Hour to"/>
+                            <field name="total_hours" string="Total Hours"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Work Description">
+                            <group>
+                                <field name="work_description" string="Description"/>
+                            </group>
+                        </page>
+                        <page string="Attendance">
+                    </page>
+                        <page string="Work Schedule">
+                            <field name="working_time_relation">
+                                <form>
+                                    <field name="name"/>
+                                    <field name="dayofweek"/>
+                                    <field name="day_period"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Global Leaves">
+                            <field name="leaving_time_relation">
+                                <form>
+                                    <field name="name"/>
+                                    <field name="resource_id"/>
+                                    <!-- <field name="calendar_id"/> -->
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- request action -->
+    <record id="request_model_action" model="ir.actions.act_window">
+        <field name="name">request.actions</field>
+        <field name="res_model">request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

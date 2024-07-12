@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <!-- tree view -->
+    <record id="estate_property_offer_tree_view" model="ir.ui.view">
+        <field name="name">estate_offer_tree_view</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <tree name="estate_offer_tree_view" editable="bottom" decoration-danger="state == 'refused'" decoration-success="state == 'accepted'">
+                <field name="price"/>
+                <field name="state" invisible="1"/>
+                <field name="partner_id"/>
+                <field name="property_type_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- form view -->
+    <record id="estate_offer_form_view" model="ir.ui.view">
+        <field name="name">estate_offer_form_view</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <form string="estate_offer_form_view">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <button name="Accept_action" type="object" string="Accept" class="btn-primary" icon="fa-check"/>
+                    <button name="Refuse_action" type="object" string="Refuse" class="btn-secondary"/>
+                </sheet>
+                <field name="price" string="price" />
+                <field name="state" string="state" />
+                <field name="partner_id" string="partner_id" />
+            </form>
+        </field>
+    </record>
+<!-- action -->
+    <record id="estate_offer_model_action" model="ir.actions.act_window">
+        <field name="name">property_offer</field>
+        <field name="res_model">estate.property.offer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

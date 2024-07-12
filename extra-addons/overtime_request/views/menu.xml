@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="time_request_root" name = "Overtime Request"/>
+    <menuitem id = "overtime_request_menu2" name="Overtime Request" parent="time_request_root" action="request_model_action"/>
+    
+</odoo>

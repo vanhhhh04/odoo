@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="estate_root" name = "estate"/>
+    <menuitem id = "test_first_level_menu" name="Advertisements" parent="estate_root"/>
+    <menuitem id ="test_model_menu_action" name="Properties" parent="test_first_level_menu" action="estate_model_action"/>
+    <menuitem id="settings_estate_type" name="Settings" parent="estate_root"/>
+    <menuitem id="property_types" name="Property_Types" parent="settings_estate_type" action="estate_type_model_action"/>
+    <menuitem id="property_tags" name="Property_Tags" parent="settings_estate_type" action="estate_tags_model_action"/>
+</odoo>
