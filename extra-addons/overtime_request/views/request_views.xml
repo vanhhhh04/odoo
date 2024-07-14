@@ -6,6 +6,7 @@
         <field name="model">request</field>
         <field name="arch" type="xml">
             <tree name="request_tree_view">
+                <field name="reference"/>
                 <field name="request_date" string="date request"/>
                 <field name="employee_id">
                     <tree>
@@ -24,19 +25,24 @@
             <form string="Request Form View">
                 <header>
                     <button name="submit_action" type="object" string="Submit" invisible ="state != 'draft'"/>
-                    <!-- <button name="Cancel_action" type="object" string="Cancel"/> -->
+                    <button name="approved_action" type="object" string="Approved" invisible="state != 'waiting'" groups="overtime_request.group_timerequest_manager" />
+                    <button name="cancel_action" type="object" string="Cancel"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,waiting,approved"/>
                 </header>
                 <sheet>
+                    <div>
+                    <field name="reference" readonly="True"/>
+                    <field name="employee_id_email" />
+                    </div>
                     <group>
                         <group>
-                            <field name="employee_id" widget="many2one_tags">
+                            <field name="employee_id">
                                 <tree>
-                                    <field name="login" string="Employee" widget="selection" />
-                                    <field name="company_id" string="Department"/>
-                                    <field name="partner_id" string="Manager"/>
+                                    <field name="login" string="Employee" widget="selection"/>
                                 </tree>
                             </field>
+                            <field name="manager_of_employee" string="Manager"/>
+                            <field name="company_of_employee" string="Company"/>
                         </group>
                         <group>
                             <field name="request_date" string="Request Date"/>
