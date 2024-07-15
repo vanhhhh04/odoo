@@ -2,5 +2,5 @@
 <odoo>
     <menuitem id="time_request_root" name = "Overtime Request"/>
     <menuitem id = "overtime_request_menu2" name="Overtime Request" parent="time_request_root" action="request_model_action"/>
-    
+    <menuitem id="overtime_request_type" name="overtime request type" parent="time_request_root" action="over_time_request_type_action"/>
 </odoo>

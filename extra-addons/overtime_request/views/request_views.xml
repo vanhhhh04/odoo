@@ -10,8 +10,8 @@
                 <field name="request_date" string="date request"/>
                 <field name="employee_id">
                     <tree>
-                        <field name="login" string="Employee"/>
-                        <field name="email" string="Work Email"/>
+                        <field name="name" string="Employee"/>
+                        <field name="work_email" string="Work Email"/>
                     </tree>
                 </field>
             </tree>
@@ -32,13 +32,12 @@
                 <sheet>
                     <div>
                     <field name="reference" readonly="True"/>
-                    <field name="employee_id_email" />
                     </div>
                     <group>
                         <group>
                             <field name="employee_id">
                                 <tree>
-                                    <field name="login" string="Employee" widget="selection"/>
+                                    <field name="name" string="Employee" widget="selection"/>
                                 </tree>
                             </field>
                             <field name="manager_of_employee" string="Manager"/>
@@ -50,6 +49,9 @@
                             <field name="hour_to" string="Hour to"/>
                             <field name="total_hours" string="Total Hours"/>
                         </group>
+                        <group>
+                            <field name ="overtime_type"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Work Description">
@@ -58,7 +60,10 @@
                             </group>
                         </page>
                         <page string="Attendance">
-                    </page>
+                        <group>
+                            <field name="hr_attendance" string="Attendance"/>
+                        </group>
+                        </page>
                         <page string="Work Schedule">
                             <field name="working_time_relation">
                                 <form>
@@ -75,7 +80,7 @@
                                 <form>
                                     <field name="name"/>
                                     <field name="resource_id"/>
-                                    <!-- <field name="calendar_id"/> -->
+                                    <field name="company_id"/>
                                     <field name="date_from"/>
                                     <field name="date_to"/>
                                 </form>
