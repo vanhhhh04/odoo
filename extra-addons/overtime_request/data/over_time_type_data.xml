@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="rules_data_1" model="over.time.type.rules">
+        <field name="hour_from">0</field>
+        <field name="hour_to">1380</field>
+        <field name="rate">0.5</field>
+    </record>
+    <record id="rules_data_2" model="over.time.type.rules">
+        <field name="hour_from">0</field>
+        <field name="hour_to">1380</field>
+        <field name="rate">0.7</field>
+    </record>
+    <record id="rules_data_3" model="over.time.type.rules">
+        <field name="hour_from">0</field>
+        <field name="hour_to">1380</field>
+        <field name="rate">0.8</field>
+    </record>
+
+
+    <record id="over_time_type_data_1" model="over.time.type">
+        <field name="name">OT ngay thuong</field>
+        <field name="rule_ids" eval="[(4, ref('rules_data_1'))]"/>
+    </record>
+
+
+    <record id="over_time_type_data_2" model="over.time.type">
+        <field name="name">OT ngay cuoi tuan</field>
+        <field name="rule_ids" eval="[(4, ref('rules_data_2'))]"/>
+    </record>
+
+    <record id="over_time_type_data_3" model="over.time.type">
+        <field name="name">OT ngay le</field>
+        <field name="rule_ids" eval="[(4, ref('rules_data_3'))]"/>
+    </record>
+
+</odoo>

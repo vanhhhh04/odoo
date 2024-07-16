@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- action -->
+    <record id="over_time_request_type_rules_action" model="ir.actions.act_window">
+        <field name="name">overtimerequest_type_rule action</field>
+        <field name="res_model">over.time.type.rules</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_available': 1}</field>
+    </record>
+
+  <!-- form view -->
+    <record id="overtimerequest_type_rule_form_view" model="ir.ui.view">
+    <field name="name">overtimerequest_type_rules form</field>
+    <field name="model">over.time.type.rules</field>
+    <field name="arch" type="xml">
+        <form string="Over time request type form">
+            <field name="name" string="name rule"/>
+            <field name="hour_from" string="hour_from"/>
+            <field name="hour_to" string="hour_to"/>
+            <field name="rate" string="Rate"/>
+        </form>
+    </field>
+</record>
+</odoo>

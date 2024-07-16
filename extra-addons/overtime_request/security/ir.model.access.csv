@@ -2,3 +2,5 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 "access_request_model","access request model name security","model_request","",1,1,1,1
 "access_request_model","access request model name security","model_request","",1,1,1,1
 "access_request_model","access request model name security","model_request","",1,1,1,1
+"access_over_time_type_model","access over time type model name security","model_over_time_type","",1,1,1,1
+"access_over_time_type_rules_model","access over time type rules model name security","model_over_time_type_rules","",1,1,1,1
