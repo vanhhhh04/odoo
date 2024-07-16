@@ -16,7 +16,6 @@ class Attendance(models.Model):
     request_relationship_attendance = fields.Many2one('request')
 
 
-
 class Resource_calender_attendance(models.Model):
     _inherit = "resource.calendar.attendance"
 
@@ -67,6 +66,8 @@ class Request(models.Model):
                 record.overtime_type = overtime_type
             else:
                 record.overtime_type = None
+
+
 
     @api.depends("employee_id")
     def _compute_manager(self):
